@@ -1,0 +1,45 @@
+structure of jenkins
+node{
+	agent{
+		parameter([
+			stages{
+				stage('content'){
+				steps('add content')
+				echo 'printing the content'
+				prntln ('final line')
+				}
+				}
+			]),
+		}
+	}
+	
+	
+	choice{
+		choices{'one', 'two'},
+		name: 'choice_param
+	},
+		
+	boolean param{
+			defaultvalue: true,
+			description:'',
+			name: 'boolean'
+		}	
+	text{
+		defaultvalue:'',
+		defaultvalue for multi line
+		'',
+		name:'multi_line_string'
+		}
+	
+	string{
+		defaultvalue: 'script',
+		name: 'string_parameter',
+		trim: true
+		}
+		
+	stage('stage1'){
+		println('hello choice_param!!' +choice_param)
+		println('hello boolean!! $boolean')
+		println("hello multi_line_string: ${multi_line_string}")
+		println('hello string_parameter!:' +string_parameter)
+		}
